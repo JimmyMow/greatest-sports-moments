@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ytid: MyString
+  title: MyString
+  description: MyText
+  wiki: MyString
+
+two:
+  ytid: MyString
+  title: MyString
+  description: MyText
+  wiki: MyString
