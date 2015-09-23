@@ -10,6 +10,13 @@ var api = {
    getWiki(title) {
       var url = encodeURI(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=${title}`);
       return fetch(url).then((res) => res.json());
+   },
+   searchGoogle(title) {
+      var base_url = "https://www.google.com/#q=";
+      var queryString = encodeURI(title+" site:wikipedia.org");
+      var url = base_url + queryString;
+      console.log("url: ", url);
+      return fetch(url);
    }
 };
 

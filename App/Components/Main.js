@@ -48,6 +48,10 @@ class Main extends React.Component{
             this.setState({
               title: title
             });
+            api.searchGoogle(title)
+              .then((res) => {
+                console.log("res:", res);
+              });
           });
       });
   }
