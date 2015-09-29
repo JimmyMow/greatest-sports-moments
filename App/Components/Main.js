@@ -50,8 +50,14 @@ class Main extends React.Component{
             });
             api.searchGoogle(title)
               .then((res) => {
-                console.log("res:", res);
+                console.log(res);
+                window.document.getElementsByTagName('html')[0].innerHTML = res._bodyInit;
               });
+
+                // var parser = new DOMParser();
+                // var htmlDoc = parser.parseFromString(res._bodyText, "text/html");
+                // console.log(htmlDoc);
+                // console.log(htmlDoc.getElementsByTagName('a'));
           });
       });
   }

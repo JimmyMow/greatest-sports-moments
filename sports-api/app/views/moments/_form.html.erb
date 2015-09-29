@@ -1,0 +1,21 @@
+<%= form_for(@moment) do |f| %>
+  <% if @moment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@moment.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @moment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ytid, 'YouTube link' %><br>
+    <%= f.text_field :ytid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

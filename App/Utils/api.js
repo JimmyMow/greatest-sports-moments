@@ -16,7 +16,13 @@ var api = {
       var queryString = encodeURI(title+" site:wikipedia.org");
       var url = base_url + queryString;
       console.log("url: ", url);
-      return fetch(url);
+      var myHeaders = new Headers();
+      myHeaders.set("Content-Type", "text/html");
+      var myInit = { method: 'GET',
+                     headers: myHeaders,
+                     mode: 'cors',
+                     cache: 'default' };
+      return fetch(url, myInit);
    }
 };
 
