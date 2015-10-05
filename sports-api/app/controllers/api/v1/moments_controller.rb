@@ -7,8 +7,11 @@ class Api::V1::MomentsController < Api::V1::BaseController
   end
 
   def rand
-   moment = Moment.limit(1).order("RANDOM ()").first
+   # moment = Moment.limit(params[:num]).order("RANDOM ()").first
+   # render(json: MomentSerializer.new(moment).to_json)
+   @moments = Moment.order("RANDOM ()").limit(params[:num].to_i)
+   puts "moment count: #{@moments.count}"
 
-   render(json: MomentSerializer.new(moment).to_json)
+   render(json: ActiveModel::ArraySerializer.new(@moments, each_serializer: MomentSerializer).to_json)
   end
 end

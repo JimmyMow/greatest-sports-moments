@@ -30,8 +30,10 @@
    * `inet` value under `en0:`) and make sure your computer and iOS device are
    * on the same Wi-Fi network.
    */
-
-  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+   // Simulator
+   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+   // My phone
+   // jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.28:8081/index.ios.bundle"];
 
   /**
    * OPTION 2
