@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
     lineHeight: 20,
     paddingLeft: 10,
     paddingRight: 10,
-    marginBottom: 50
+    marginBottom: 150
   },
   scroll: {
     height: 300

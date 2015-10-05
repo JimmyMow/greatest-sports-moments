@@ -8,6 +8,7 @@
   "dependencies": {
     "apsl-react-native-button": "^2.0.0",
     "react-native": "^0.11.0",
+    "react-native-slider-button": "0.0.4",
     "react-native-youtube": "^0.3.0"
   }
 }

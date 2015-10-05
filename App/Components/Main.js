@@ -5,6 +5,7 @@ var Web_View = require('./Helpers/WebView');
 var Moment = require('./Moment');
 var Swipe = require('./Swipe');
 var Button = require('apsl-react-native-button');
+var SliderButton = require("react-native-slider-button");
 
 var {
   Text,
@@ -21,15 +22,19 @@ var styles = StyleSheet.create({
     backgroundColor: '#FFF'
   },
   nav: {
-    backgroundColor: '#FFF',
-    opacity: 0.5,
+    flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
     height: 50,
     position: 'absolute',
-    flexDirection: 'row',
+    flexDirection: 'column',
     bottom: 0,
     justifyContent: 'space-between',
     left: 0,
-    right: 0
+    right: 0,
+    paddingTop: 5,
+    paddingBottom: 5
+  },
+  slider: {
   },
   nextContainer: {
     height: 50,
@@ -77,20 +82,40 @@ class Main extends React.Component{
   render(){
     return (
       <View style={styles.mainContainer}>
-        <Swipe />
         <Moment moment={this.state.moment} navigator={this.props.navigator} />
         <View style={styles.nav}>
-          <TouchableHighlight
-            onPress={this.nextMoment.bind(this)}
-            underlayColor='transparent'>
-            <View style={styles.nextContainer}>
-
-            </View>
-          </TouchableHighlight>
+          <SliderButton
+            text={"Slide For Next Moment >>>"}
+            textAnimated={true}
+            stylesheet={SliderButtonStyle}
+            minimumValue={0} maximumValue={100} value={0}
+            minimumTrackTintColor={"rgba(0,0,0,0)"}
+            maximumTrackTintColor={"rgba(0,0,0,0)"}
+            onTrigger={this.nextMoment.bind(this)}/>
         </View>
       </View>
     );
   }
 };
+
+var SliderButtonStyle = StyleSheet.create({
+  text:
+  {
+    fontSize: 18,
+    color: "black"
+  },
+  slider:
+  {
+    flex: 1,
+    marginLeft: 26,
+    marginRight: 26,
+  },
+  sliderBorder:
+  {
+    borderWidth: 0,
+    borderRadius: 20,
+    borderColor: "#FFFFFF"
+  }
+});
 
 module.exports = Main;
