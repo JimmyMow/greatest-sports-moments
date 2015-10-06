@@ -14,30 +14,30 @@ var {
 
 var styles = StyleSheet.create({
   theatreMode: {
-    padding: 10,
-    backgroundColor: '#000'
+    backgroundColor: '#FFF'
   },
   title: {
-    color: '#FFF',
-    fontSize: 18
+    color: '#000',
+    fontSize: 16,
+    paddingLeft: 5,
+    paddingRight: 5,
+    fontWeight: 'bold'
   },
   description: {
     lineHeight: 20,
     paddingLeft: 10,
     paddingRight: 10,
-    marginBottom: 150
+    marginBottom: 10,
+    marginTop: -50
   },
   scroll: {
-    height: 300
+    height: 100
   }
 });
 
 class Moment extends React.Component{
    constructor(props) {
       super(props);
-      this.state = {
-         videoLoading: true
-      };
    }
    openPage(url){
       this.props.navigator.push({
@@ -50,10 +50,9 @@ class Moment extends React.Component{
       return (
          <View>
             <View style={styles.theatreMode}>
-               <Text style={styles.title}>{this.props.moment.title ? this.props.moment.title : ''}</Text>
-               <Text>{this.state.videoLoading ? "Loading video..." : ""}</Text>
                <Video ytid={this.props.moment.ytid} />
             </View>
+            <Text style={styles.title}>{this.props.moment.title ? this.props.moment.title : ''}</Text>
             <ScrollView style={styles.scroll}>
               <View>
               <TouchableHighlight

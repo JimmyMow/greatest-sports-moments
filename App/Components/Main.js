@@ -18,7 +18,7 @@ var {
 var styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 55,
     backgroundColor: '#FFF'
   },
   nav: {
@@ -33,19 +33,6 @@ var styles = StyleSheet.create({
     right: 0,
     paddingTop: 5,
     paddingBottom: 5
-  },
-  slider: {
-  },
-  nextContainer: {
-    height: 50,
-    backgroundColor: 'green',
-    width: 50,
-    borderRadius: 25
-  },
-  next: {
-    color: 'red',
-    lineHeight: 50,
-    opacity: 1
   }
 });
 
@@ -89,7 +76,7 @@ class Main extends React.Component{
             textAnimated={true}
             stylesheet={SliderButtonStyle}
             minimumValue={0} maximumValue={100} value={0}
-            minimumTrackTintColor={"rgba(0,0,0,0)"}
+            minimumTrackTintColor={"rgba(0,0,0,1)"}
             maximumTrackTintColor={"rgba(0,0,0,0)"}
             onTrigger={this.nextMoment.bind(this)}/>
         </View>
@@ -101,8 +88,8 @@ class Main extends React.Component{
 var SliderButtonStyle = StyleSheet.create({
   text:
   {
-    fontSize: 18,
-    color: "black"
+    fontSize: 14,
+    color: "#000"
   },
   slider:
   {
