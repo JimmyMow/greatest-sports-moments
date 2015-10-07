@@ -49,11 +49,30 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  editButton: {
+    backgroundColor: '#000',
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    alignSelf: 'flex-start',
+    marginTop: -53,
+    marginLeft: 5,
+    paddingBottom: 5,
+    paddingTop: 5,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   next: {
     height: 30,
     width: 30,
     alignSelf: 'center',
   },
+  edit: {
+    height: 30,
+    width: 30,
+    alignSelf: 'center',
+  }
 });
 
 class Main extends React.Component{
@@ -92,6 +111,9 @@ class Main extends React.Component{
         this.state.moments.push(res[0]);
       });
   }
+  editMoment(){
+    console.log('at edit moment');
+  }
   render(){
     return (
       <View style={styles.mainContainer}>
@@ -106,6 +128,19 @@ class Main extends React.Component{
                 size={30}
                 color='#FFF'
                 style={styles.next}
+              />
+            </View>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+          onPress={this.editMoment.bind(this)}
+          underlayColor='transparent'>
+            <View style={styles.editButton}>
+              <Icon
+                name='fontawesome|pencil-square-o'
+                size={30}
+                color='#FFF'
+                style={styles.edit}
               />
             </View>
           </TouchableHighlight>
