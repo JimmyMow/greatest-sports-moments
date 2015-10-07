@@ -25,6 +25,11 @@
 		3022D9E21BC2F1B700AB3B50 /* libRCTYouTube.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301A8D291BB3266A0037A7EC /* libRCTYouTube.a */; };
 		3022D9F41BC342A600AB3B50 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3022D9FB1BC47CEC00AB3B50 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3022D9FA1BC47C9E00AB3B50 /* libRNSpinkit.a */; };
+		30262AA61BC5897800B9AF60 /* libReactNativeIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30262AA51BC5896B00B9AF60 /* libReactNativeIcons.a */; };
+		30262AAB1BC589BB00B9AF60 /* FAKFontAwesome.h in Resources */ = {isa = PBXBuildFile; fileRef = 30262AA71BC589BB00B9AF60 /* FAKFontAwesome.h */; };
+		30262AAC1BC589BB00B9AF60 /* FAKFontAwesome.m in Resources */ = {isa = PBXBuildFile; fileRef = 30262AA81BC589BB00B9AF60 /* FAKFontAwesome.m */; };
+		30262AAD1BC589BB00B9AF60 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30262AA91BC589BB00B9AF60 /* FontAwesome.otf */; };
+		30262AAE1BC589BB00B9AF60 /* FontAwesomeKit.h in Resources */ = {isa = PBXBuildFile; fileRef = 30262AAA1BC589BB00B9AF60 /* FontAwesomeKit.h */; };
 		306482081BB327D90053E9F5 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = 306482071BB327D90053E9F5 /* YTPlayerView-iframe-player.html */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
@@ -107,6 +112,13 @@
 			remoteGlobalIDString = D42CB3511B2538DE00FD0AE2;
 			remoteInfo = RNSpinkit;
 		};
+		30262AA41BC5896B00B9AF60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30262AA01BC5896B00B9AF60 /* ReactNativeIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2F5A3EB81ACDBF8000439386;
+			remoteInfo = ReactNativeIcons;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -145,6 +157,11 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		301A8D1B1BB3266A0037A7EC /* RCTYouTube.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTYouTube.xcodeproj; path = "../node_modules/react-native-youtube/RCTYouTube.xcodeproj"; sourceTree = "<group>"; };
 		3022D9F51BC47C9E00AB3B50 /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSpinkit.xcodeproj; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; };
+		30262AA01BC5896B00B9AF60 /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "../node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
+		30262AA71BC589BB00B9AF60 /* FAKFontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FAKFontAwesome.h; path = "../node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FAKFontAwesome.h"; sourceTree = "<group>"; };
+		30262AA81BC589BB00B9AF60 /* FAKFontAwesome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FAKFontAwesome.m; path = "../node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FAKFontAwesome.m"; sourceTree = "<group>"; };
+		30262AA91BC589BB00B9AF60 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = "../node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FontAwesome.otf"; sourceTree = "<group>"; };
+		30262AAA1BC589BB00B9AF60 /* FontAwesomeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FontAwesomeKit.h; path = "../node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FontAwesomeKit.h"; sourceTree = "<group>"; };
 		306482071BB327D90053E9F5 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "YTPlayerView-iframe-player.html"; path = "../Assets/YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -163,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30262AA61BC5897800B9AF60 /* libReactNativeIcons.a in Frameworks */,
 				3022D9FB1BC47CEC00AB3B50 /* libRNSpinkit.a in Frameworks */,
 				3022D9E21BC2F1B700AB3B50 /* libRCTYouTube.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -292,6 +310,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		30262AA11BC5896B00B9AF60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30262AA51BC5896B00B9AF60 /* libReactNativeIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +329,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				30262AA01BC5896B00B9AF60 /* ReactNativeIcons.xcodeproj */,
 				3022D9F51BC47C9E00AB3B50 /* RNSpinkit.xcodeproj */,
 				301A8D1B1BB3266A0037A7EC /* RCTYouTube.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -330,6 +357,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				30262AA71BC589BB00B9AF60 /* FAKFontAwesome.h */,
+				30262AA81BC589BB00B9AF60 /* FAKFontAwesome.m */,
+				30262AA91BC589BB00B9AF60 /* FontAwesome.otf */,
+				30262AAA1BC589BB00B9AF60 /* FontAwesomeKit.h */,
 				306482071BB327D90053E9F5 /* YTPlayerView-iframe-player.html */,
 				13B07FAE1A68108700A75B9A /* sports */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -462,6 +493,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 30262AA11BC5896B00B9AF60 /* Products */;
+					ProjectRef = 30262AA01BC5896B00B9AF60 /* ReactNativeIcons.xcodeproj */;
+				},
+				{
 					ProductGroup = 3022D9F61BC47C9E00AB3B50 /* Products */;
 					ProjectRef = 3022D9F51BC47C9E00AB3B50 /* RNSpinkit.xcodeproj */;
 				},
@@ -545,6 +580,13 @@
 			remoteRef = 3022D9F91BC47C9E00AB3B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		30262AA51BC5896B00B9AF60 /* libReactNativeIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeIcons.a;
+			remoteRef = 30262AA41BC5896B00B9AF60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -573,6 +615,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30262AAB1BC589BB00B9AF60 /* FAKFontAwesome.h in Resources */,
+				30262AAC1BC589BB00B9AF60 /* FAKFontAwesome.m in Resources */,
+				30262AAD1BC589BB00B9AF60 /* FontAwesome.otf in Resources */,
+				30262AAE1BC589BB00B9AF60 /* FontAwesomeKit.h in Resources */,
 				306482081BB327D90053E9F5 /* YTPlayerView-iframe-player.html in Resources */,
 				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,

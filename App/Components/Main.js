@@ -7,6 +7,7 @@ var Swipe = require('./Swipe');
 var Button = require('apsl-react-native-button');
 var SliderButton = require("react-native-slider-button");
 var Spinner = require('react-native-spinkit');
+var { Icon, } = require('react-native-icons');
 
 var {
   Text,
@@ -24,7 +25,7 @@ var styles = StyleSheet.create({
   },
   nav: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
+    backgroundColor: '#FFF',
     height: 50,
     position: 'absolute',
     flexDirection: 'column',
@@ -32,11 +33,27 @@ var styles = StyleSheet.create({
     justifyContent: 'space-between',
     left: 0,
     right: 0,
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 7,
   },
-  spiner: {
-  }
+  nextButton: {
+    backgroundColor: '#000',
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    alignSelf: 'flex-end',
+    marginTop: -10,
+    marginRight: 5,
+    paddingBottom: 5,
+    paddingTop: 5,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  next: {
+    height: 30,
+    width: 30,
+    alignSelf: 'center',
+  },
 });
 
 class Main extends React.Component{
@@ -65,14 +82,14 @@ class Main extends React.Component{
       });
   }
   nextMoment(){
+    this.state.moments.shift();
+    var moment = this.state.moments[0];
+    this.setState({
+      moment: moment
+    });
     api.getMoment()
       .then((res) => {
         this.state.moments.push(res[0]);
-        this.state.moments.shift();
-      });
-      var moment = this.state.moments[0];
-      this.setState({
-        moment: moment
       });
   }
   render(){
@@ -80,14 +97,18 @@ class Main extends React.Component{
       <View style={styles.mainContainer}>
         <Moment moment={this.state.moment} navigator={this.props.navigator} />
         <View style={styles.nav}>
-          <SliderButton
-            text={"Slide For Next Moment >>>"}
-            textAnimated={true}
-            stylesheet={SliderButtonStyle}
-            minimumValue={0} maximumValue={100} value={0}
-            minimumTrackTintColor={"rgba(0,0,0,1)"}
-            maximumTrackTintColor={"rgba(0,0,0,0)"}
-            onTrigger={this.nextMoment.bind(this)}/>
+          <TouchableHighlight
+          onPress={this.nextMoment.bind(this)}
+          underlayColor='transparent'>
+            <View style={styles.nextButton}>
+              <Icon
+                name='fontawesome|share'
+                size={30}
+                color='#FFF'
+                style={styles.next}
+              />
+            </View>
+          </TouchableHighlight>
         </View>
       </View>
     );

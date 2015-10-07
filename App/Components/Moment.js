@@ -21,17 +21,18 @@ var styles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: 5,
     paddingRight: 5,
+    paddingBottom: 5,
     fontWeight: 'bold'
   },
   description: {
     lineHeight: 20,
     paddingLeft: 10,
     paddingRight: 10,
-    marginBottom: 10,
+    marginBottom: 75,
     marginTop: -50
   },
   scroll: {
-    height: 100
+    height: 200
   }
 });
 
