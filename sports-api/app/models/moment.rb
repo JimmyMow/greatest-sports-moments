@@ -23,7 +23,8 @@ class Moment < ActiveRecord::Base
       puts "query: #{query}"
       webscraper = Webscraper.new
       wiki_url = webscraper.google_search(query)
-      puts "wiki: #{self.wiki}"
+      puts "wiki url: #{wiki_url}"
+      puts "#{wiki_url.split('/')[-1]}"
       wiki_title = URI.unescape(wiki_url.split('/')[-1])
 
       puts "wiki title: #{wiki_title}"

@@ -41,6 +41,9 @@ class Moment extends React.Component{
       super(props);
    }
    openPage(url){
+      if(!url) {
+        return;
+      }
       this.props.navigator.push({
          title: 'Web View',
          component: Web_View,

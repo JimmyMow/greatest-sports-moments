@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
   },
   nav: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
     height: 50,
     position: 'absolute',
     flexDirection: 'column',
@@ -36,7 +36,7 @@ var styles = StyleSheet.create({
     paddingTop: 7,
   },
   nextButton: {
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
     height: 50,
     width: 50,
     borderRadius: 25,
@@ -50,7 +50,7 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   editButton: {
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
     height: 50,
     width: 50,
     borderRadius: 25,
@@ -67,11 +67,13 @@ var styles = StyleSheet.create({
     height: 30,
     width: 30,
     alignSelf: 'center',
+    color: 'rgba(255, 255, 255, 1)'
   },
   edit: {
     height: 30,
     width: 30,
     alignSelf: 'center',
+    color: 'rgba(255, 255, 255, 1)'
   }
 });
 
