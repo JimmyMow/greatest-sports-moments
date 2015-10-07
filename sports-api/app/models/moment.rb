@@ -25,6 +25,8 @@ class Moment < ActiveRecord::Base
       wiki_url = webscraper.google_search(query)
       puts "wiki: #{self.wiki}"
       wiki_title = URI.unescape(wiki_url.split('/')[-1])
+
+      puts "wiki title: #{wiki_title}"
       puts "wiki: #{wiki}"
 
       # Get first paragraph from wiki page

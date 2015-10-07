@@ -6,6 +6,7 @@ var Moment = require('./Moment');
 var Swipe = require('./Swipe');
 var Button = require('apsl-react-native-button');
 var SliderButton = require("react-native-slider-button");
+var Spinner = require('react-native-spinkit');
 
 var {
   Text,
@@ -33,6 +34,8 @@ var styles = StyleSheet.create({
     right: 0,
     paddingTop: 5,
     paddingBottom: 5
+  },
+  spiner: {
   }
 });
 
@@ -41,13 +44,19 @@ class Main extends React.Component{
     super(props);
     this.state = {
       moments: [],
-      moment: {}
+      moment: {},
+      index: 0,
+      type: 'Arc',
+      types: ['CircleFlip', 'Bounce', 'Wave', 'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid', 'WordPress', 'FadingCircle', 'FadingCircleAlt', 'Arc', 'ArcAlt'],
+      size: 100,
+      color: "#000",
+      isVisible: true,
+      isLoading: true
     };
   }
   componentWillMount() {
     api.getMoments()
       .then((res) => {
-         console.log("res: ", res);
          this.setState({
             moments: res,
             moment: res[0]
@@ -60,10 +69,10 @@ class Main extends React.Component{
       .then((res) => {
         this.state.moments.push(res[0]);
         this.state.moments.shift();
-        var moment = this.state.moments[0];
-        this.setState({
-          moment: moment
-        });
+      });
+      var moment = this.state.moments[0];
+      this.setState({
+        moment: moment
       });
   }
   render(){
