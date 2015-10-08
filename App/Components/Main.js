@@ -5,9 +5,11 @@ var Web_View = require('./Helpers/WebView');
 var Moment = require('./Moment');
 var Swipe = require('./Swipe');
 var Button = require('apsl-react-native-button');
-var SliderButton = require("react-native-slider-button");
 var Spinner = require('react-native-spinkit');
 var { Icon, } = require('react-native-icons');
+var EditModal = require('./EditModal');
+var Modal = require('react-native-modalbox');
+
 
 var {
   Text,
@@ -74,6 +76,10 @@ var styles = StyleSheet.create({
     width: 30,
     alignSelf: 'center',
     color: 'rgba(255, 255, 255, 1)'
+  },
+  modal: {
+    flex: 1,
+    backgroundColor: '#EEE'
   }
 });
 
@@ -83,13 +89,8 @@ class Main extends React.Component{
     this.state = {
       moments: [],
       moment: {},
-      index: 0,
-      type: 'Arc',
-      types: ['CircleFlip', 'Bounce', 'Wave', 'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid', 'WordPress', 'FadingCircle', 'FadingCircleAlt', 'Arc', 'ArcAlt'],
-      size: 100,
-      color: "#000",
-      isVisible: true,
-      isLoading: true
+      isLoading: true,
+      isEditing: false
     };
   }
   componentWillMount() {
@@ -114,11 +115,17 @@ class Main extends React.Component{
       });
   }
   editMoment(){
-    console.log('at edit moment');
+    this.refs.modal.open();
+  }
+  closeModal(){
+    this.refs.modal.close();
   }
   render(){
     return (
       <View style={styles.mainContainer}>
+        <Modal isOpen={false} style={styles.modal} ref={'modal'}>
+            <EditModal moment={this.state.moment} modal={this.refs.modal} />
+         </Modal>
         <Moment moment={this.state.moment} navigator={this.props.navigator} />
         <View style={styles.nav}>
           <TouchableHighlight
@@ -151,25 +158,5 @@ class Main extends React.Component{
     );
   }
 };
-
-var SliderButtonStyle = StyleSheet.create({
-  text:
-  {
-    fontSize: 14,
-    color: "#000"
-  },
-  slider:
-  {
-    flex: 1,
-    marginLeft: 26,
-    marginRight: 26,
-  },
-  sliderBorder:
-  {
-    borderWidth: 0,
-    borderRadius: 20,
-    borderColor: "#FFFFFF"
-  }
-});
 
 module.exports = Main;
