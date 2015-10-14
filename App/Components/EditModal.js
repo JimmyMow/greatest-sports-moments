@@ -7,10 +7,15 @@ var {
   View,
   StyleSheet,
   TouchableHighlight,
-  TextInput
+  TextInput,
+  ScrollView
 } = React;
 
 var styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#EEE',
+    flex: 1
+  },
    modal: {
       flex: 1
    },
@@ -20,40 +25,46 @@ var styles = StyleSheet.create({
       right: 0,
       left: 0
    },
-   close: {
-      height: 30,
-      width: 30
-   },
    message: {
     padding: 10,
-    fontSize: 18
+    fontSize: 16,
+    fontWeight: '200',
+    lineHeight: 22,
+    letterSpacing: 0.2,
+    marginTop: 50
    },
    title: {
       fontWeight: 'bold'
    },
+   form: {
+    backgroundColor: '#EEE'
+   },
    label: {
-    marginBottom: 10,
+    marginBottom: 5,
     fontSize: 15,
     fontWeight: 'bold',
-    padding: 10
+    padding: 10,
+    color: '#343434'
    },
    description: {
       height: 200,
       borderColor: '#FFF',
       borderWidth: 1,
       fontSize: 15,
-      padding: 10,
+      padding: 20,
       marginBottom: 10,
       backgroundColor: '#FFF',
-      fontWeight: '200'
+      fontWeight: '200',
+      color: '#343434'
    },
    wiki: {
       borderColor: '#FFF',
       borderWidth: 1,
       fontSize: 15,
-      padding: 10,
+      padding: 20,
       backgroundColor: '#FFF',
-      fontWeight: '200'
+      fontWeight: '200',
+      color: '#343434'
    }
 });
 
@@ -68,22 +79,14 @@ class EditModal extends React.Component{
       console.log("here");
       this.props.modal.close();
    }
+   onClose() {
+    console.log('Modal just closed');
+   }
    render() {
       return (
-         <View>
-            <TouchableHighlight
-            onPress={this.closeModal.bind(this)}
-            underlayColor='transparent'
-            >
-               <Icon
-                name='fontawesome|close'
-                size={30}
-                color='#000'
-                style={styles.close}
-              />
-            </TouchableHighlight>
+         <View style={styles.container}>
             <Text style={styles.message}>
-            GSM crawls the web based on the video and tries its best to find a description for the moment, but they are not always perfect. Do you have a better description for "<Text style={styles.title}>{this.props.moment.title}</Text>"?
+              We crawl the web based on the video and do our best to find a description for the moment, but they are not always perfect. Do you have a better description for "<Text style={styles.title}>{this.props.moment.title}</Text>"?
             </Text>
             <View style={styles.form}>
               <Text style={styles.label}>

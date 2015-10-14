@@ -31,12 +31,14 @@
    * on the same Wi-Fi network.
    */
    // Simulator
-   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+   // jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
    // My phone
    // 1st floor
    // jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.22:8081/index.ios.bundle"];
    // recroom5ghz
    // jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.178:8081/index.ios.bundle"];
+   // MHomeWifi
+   jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.228:8081/index.ios.bundle"];
 
 
   /**

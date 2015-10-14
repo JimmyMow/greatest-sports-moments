@@ -9,7 +9,7 @@ var {
   View,
   StyleSheet,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
 } = React;
 
 var styles = StyleSheet.create({

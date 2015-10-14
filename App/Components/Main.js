@@ -16,7 +16,8 @@ var {
   View,
   StyleSheet,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
+  NavigatorIOS
 } = React;
 
 var styles = StyleSheet.create({
@@ -24,6 +25,10 @@ var styles = StyleSheet.create({
     flex: 1,
     marginTop: 55,
     backgroundColor: '#FFF'
+  },
+  navIOS: {
+    backgroundColor: 'red',
+    flex: 1
   },
   nav: {
     flex: 1,
@@ -78,8 +83,7 @@ var styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)'
   },
   modal: {
-    flex: 1,
-    backgroundColor: '#EEE'
+    backgroundColor: 'red'
   }
 });
 
@@ -124,7 +128,21 @@ class Main extends React.Component{
     return (
       <View style={styles.mainContainer}>
         <Modal isOpen={false} style={styles.modal} ref={'modal'}>
-            <EditModal moment={this.state.moment} modal={this.refs.modal} />
+            <NavigatorIOS
+              style={styles.navIOS}
+              initialRoute={{
+                title: 'Edit Moment',
+                component: EditModal,
+                passProps: { moment: this.state.moment, modal: this.refs.modal },
+                rightButtonTitle: 'Done',
+                leftButtonTitle: 'Cancel',
+                onRightButtonPress: () => {
+                  this.refs.modal.close()
+                },
+                onLeftButtonPress: () => {
+                  this.refs.modal.close()
+                }
+              }} />
          </Modal>
         <Moment moment={this.state.moment} navigator={this.props.navigator} />
         <View style={styles.nav}>
