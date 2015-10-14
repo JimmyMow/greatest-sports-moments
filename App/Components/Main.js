@@ -9,7 +9,7 @@ var Spinner = require('react-native-spinkit');
 var { Icon, } = require('react-native-icons');
 var EditModal = require('./EditModal');
 var Modal = require('react-native-modalbox');
-
+var EventEmitter = require('EventEmitter');
 
 var {
   Text,
@@ -98,6 +98,7 @@ class Main extends React.Component{
     };
   }
   componentWillMount() {
+    this.eventEmitter = new EventEmitter();
     api.getMoments()
       .then((res) => {
          this.setState({
@@ -124,6 +125,15 @@ class Main extends React.Component{
   closeModal(){
     this.refs.modal.close();
   }
+  saveEdit(){
+    this.eventEmitter.emit('save', { someArg: 'argValue' });
+    this.refs.modal.close();
+  }
+  updateStuff(moment) {
+    this.setState({
+      moment: moment
+    });
+  }
   render(){
     return (
       <View style={styles.mainContainer}>
@@ -133,14 +143,15 @@ class Main extends React.Component{
               initialRoute={{
                 title: 'Edit Moment',
                 component: EditModal,
-                passProps: { moment: this.state.moment, modal: this.refs.modal },
                 rightButtonTitle: 'Done',
-                leftButtonTitle: 'Cancel',
                 onRightButtonPress: () => {
-                  this.refs.modal.close()
+                  this.saveEdit()
                 },
-                onLeftButtonPress: () => {
-                  this.refs.modal.close()
+                passProps: {
+                  moment: this.state.moment,
+                  modal: this.refs.modal,
+                  events: this.eventEmitter,
+                  update: this.updateStuff.bind(this)
                 }
               }} />
          </Modal>

@@ -16,8 +16,22 @@ class MomentsController < ApplicationController
       end
    end
 
+   def update
+      @moment = Moment.find(params[:id])
+      respond_to do |format|
+      if @moment.update(moment_params)
+        format.html { redirect_to @moment, notice: 'moment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @moment }
+        format.js
+      else
+        format.html { render :edit }
+        format.json { render json: @moment.errors, status: :unprocessable_entity }
+      end
+    end
+   end
+
 private
    def moment_params
-      params.require(:moment).permit(:ytid)
+      params.require(:moment).permit(:ytid, :description, :wiki)
    end
 end

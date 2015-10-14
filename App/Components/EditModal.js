@@ -1,6 +1,8 @@
 var React = require('react-native');
 var Modal = require('react-native-modalbox');
 var { Icon, } = require('react-native-icons');
+var Subscribable = require('Subscribable');
+var api = require('../Utils/api');
 
 var {
   Text,
@@ -68,21 +70,35 @@ var styles = StyleSheet.create({
    }
 });
 
-class EditModal extends React.Component{
-   constructor(props) {
-      super(props);
-      this.state = {
-         isOpen: false
+var EditModal = React.createClass({
+   mixins: [Subscribable.Mixin],
+   getInitialState: function() {
+      return {
+        description: this.props.moment.description,
+        wiki: this.props.moment.wiki
       };
-   }
-   closeModal() {
-      console.log("here");
+   },
+   componentDidMount: function() {
+      this.addListenerOn(this.props.events, 'save', this.saveMoment);
+   },
+   saveMoment: function() {
+      var data = {
+        description: this.state.description,
+        wiki: this.state.wiki
+      };
+      api.editMoment(this.props.moment.id, data)
+        .then((res) => {
+          this.props.update(res);
+          this.setState({
+            description: res.description,
+            wiki: res.wiki
+          });
+        });
+   },
+   closeModal: function() {
       this.props.modal.close();
-   }
-   onClose() {
-    console.log('Modal just closed');
-   }
-   render() {
+   },
+   render: function() {
       return (
          <View style={styles.container}>
             <Text style={styles.message}>
@@ -94,7 +110,8 @@ class EditModal extends React.Component{
               </Text>
               <TextInput
                 style={styles.description}
-                value={this.props.moment.description}
+                onChangeText={(text) => this.setState({ description: text})}
+                value={this.state.description}
                 multiline={true}
               />
               <Text style={styles.label}>
@@ -108,6 +125,6 @@ class EditModal extends React.Component{
          </View>
       );
    }
-}
+});
 
 module.exports = EditModal;
