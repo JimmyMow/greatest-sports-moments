@@ -3,6 +3,7 @@ var Modal = require('react-native-modalbox');
 var { Icon, } = require('react-native-icons');
 var Subscribable = require('Subscribable');
 var api = require('../Utils/api');
+var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
 
 var {
   Text,
@@ -16,7 +17,9 @@ var {
 var styles = StyleSheet.create({
   container: {
     backgroundColor: '#EEE',
-    flex: 1
+    flex: 1,
+    marginTop: -50,
+    marginBottom: 50
   },
    modal: {
       flex: 1
@@ -37,9 +40,6 @@ var styles = StyleSheet.create({
    },
    title: {
       fontWeight: 'bold'
-   },
-   form: {
-    backgroundColor: '#EEE'
    },
    label: {
     marginBottom: 5,
@@ -67,6 +67,9 @@ var styles = StyleSheet.create({
       backgroundColor: '#FFF',
       fontWeight: '200',
       color: '#343434'
+   },
+   scroll: {
+      height: 200
    }
 });
 
@@ -75,11 +78,25 @@ var EditModal = React.createClass({
    getInitialState: function() {
       return {
         description: this.props.moment.description,
-        wiki: this.props.moment.wiki
+        wiki: this.props.moment.wiki,
+        keyboardSpace: 0,
       };
    },
    componentDidMount: function() {
       this.addListenerOn(this.props.events, 'save', this.saveMoment);
+   },
+   inputFocused: function(refName) {
+    setTimeout(() => {
+      let scrollResponder = this.refs.scrollView.getScrollResponder();
+      scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
+        React.findNodeHandle(this.refs[refName]),
+        true
+      );
+    }, 50);
+  },
+   scrollResponderKeyboardWillHide: function() {
+    console.log('keyboard will hide');
+    this.setState({keyboardSpace: 0});
    },
    saveMoment: function() {
       var data = {
@@ -100,29 +117,32 @@ var EditModal = React.createClass({
    },
    render: function() {
       return (
-         <View style={styles.container}>
+         <ScrollView ref='scrollView' style={[styles.container]}>
             <Text style={styles.message}>
               We crawl the web based on the video and do our best to find a description for the moment, but they are not always perfect. Do you have a better description for "<Text style={styles.title}>{this.props.moment.title}</Text>"?
             </Text>
-            <View style={styles.form}>
-              <Text style={styles.label}>
-                Description
-              </Text>
-              <TextInput
-                style={styles.description}
-                onChangeText={(text) => this.setState({ description: text})}
-                value={this.state.description}
-                multiline={true}
-              />
-              <Text style={styles.label}>
-                Source (URL)
-              </Text>
-              <TextInput
-                style={styles.wiki}
-                value={this.props.moment.wiki}
-              />
-            </View>
-         </View>
+            <Text style={styles.label}>
+              Description
+            </Text>
+            <TextInput
+              style={styles.description}
+              onChangeText={(text) => this.setState({ description: text})}
+              onFocus={this.inputFocused.bind(this, 'descriptionInput')}
+              value={this.state.description}
+              multiline={true}
+              ref='descriptionInput'
+            />
+            <Text style={styles.label}>
+              Source (URL)
+            </Text>
+            <TextInput
+              style={styles.wiki}
+              value={this.props.moment.wiki}
+              onChangeText={(text) => this.setState({ wiki: text})}
+              onFocus={this.inputFocused.bind(this, 'wikiInput')}
+              ref='wikiInput'
+            />
+         </ScrollView>
       );
    }
 });

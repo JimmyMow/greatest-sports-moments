@@ -17,7 +17,7 @@ class Video extends React.Component{
          status: null,
          quality: null,
          error: null,
-         isPlaying: false
+         isPlaying: true
        }
    }
    render() {

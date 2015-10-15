@@ -137,7 +137,11 @@ class Main extends React.Component{
   render(){
     return (
       <View style={styles.mainContainer}>
-        <Modal isOpen={false} style={styles.modal} ref={'modal'}>
+        <Modal
+          isOpen={false}
+          style={styles.modal}
+          swipeToClose={false}
+          ref={'modal'}>
             <NavigatorIOS
               style={styles.navIOS}
               initialRoute={{
