@@ -1,5 +1,7 @@
-1) Launch Screen needs to be better
+<!-- Ideas -->
 
-2) Need a logo for my app image thing
+1) Add about page
 
-3) Make sure you are not able to turn the app
+2) Make web home page
+
+3) Favorite/comments on moments
